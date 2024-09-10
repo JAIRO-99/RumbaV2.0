@@ -23,6 +23,8 @@
 		8CC9A6E42C87AE4400475A24 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9A6E32C87AE4400475A24 /* UserModel.swift */; };
 		8CC9A6E62C87AEC900475A24 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9A6E52C87AEC900475A24 /* AuthViewModel.swift */; };
 		8CC9A6E92C87B4C000475A24 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9A6E82C87B4C000475A24 /* AuthService.swift */; };
+		8CDD117C2C8B6F9C0012B34A /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDD117B2C8B6F9C0012B34A /* LocalStorage.swift */; };
+		8CDD117F2C8F72050012B34A /* AtuhViewLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDD117E2C8F72050012B34A /* AtuhViewLogin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,9 @@
 		8CC9A6E32C87AE4400475A24 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		8CC9A6E52C87AEC900475A24 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		8CC9A6E82C87B4C000475A24 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		8CD5C8FF2C8A8D1E0078FAED /* RumbaV2-0-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "RumbaV2-0-Info.plist"; sourceTree = SOURCE_ROOT; };
+		8CDD117B2C8B6F9C0012B34A /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
+		8CDD117E2C8F72050012B34A /* AtuhViewLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtuhViewLogin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +80,7 @@
 		8CC9A6BD2C87556B00475A24 /* RumbaV2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				8CD5C8FF2C8A8D1E0078FAED /* RumbaV2-0-Info.plist */,
 				8CC9A6BE2C87556B00475A24 /* RumbaV2_0App.swift */,
 				8CC9A6C02C87556B00475A24 /* ContentView.swift */,
 				8CC9A6E22C87AE3300475A24 /* Model */,
@@ -97,10 +103,10 @@
 		8CC9A6CE2C8755DD00475A24 /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
+				8CC9A6DC2C87802700475A24 /* AuxiliaryDetailView */,
 				8CC9A6D72C876A2100475A24 /* AuthenticationViews */,
 				8CC9A6CF2C87563400475A24 /* TabBarView.swift */,
 				8CC9A6DF2C87837E00475A24 /* LaunchScreenView.swift */,
-				8CC9A6DC2C87802700475A24 /* AuxiliaryDetailView */,
 				8CC9A6D12C87567300475A24 /* HomeView.swift */,
 				8CC9A6D32C87568000475A24 /* PurchaseView.swift */,
 				8CC9A6D52C87568E00475A24 /* UserView.swift */,
@@ -121,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				8CC9A6DD2C87804800475A24 /* RumbaState.swift */,
+				8CDD117D2C8F71DC0012B34A /* AuxuliaryAuthentication */,
 				8C58450A2C88D64200BC1B1B /* StampShape.swift */,
 			);
 			path = AuxiliaryDetailView;
@@ -148,8 +155,25 @@
 			isa = PBXGroup;
 			children = (
 				8CC9A6E82C87B4C000475A24 /* AuthService.swift */,
+				8CDD117A2C8B6F840012B34A /* LocalStorage */,
 			);
 			name = NetworkService;
+			sourceTree = "<group>";
+		};
+		8CDD117A2C8B6F840012B34A /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				8CDD117B2C8B6F9C0012B34A /* LocalStorage.swift */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		8CDD117D2C8F71DC0012B34A /* AuxuliaryAuthentication */ = {
+			isa = PBXGroup;
+			children = (
+				8CDD117E2C8F72050012B34A /* AtuhViewLogin.swift */,
+			);
+			path = AuxuliaryAuthentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,8 +250,10 @@
 				8CC9A6D92C876A3D00475A24 /* LoginView.swift in Sources */,
 				8CC9A6D62C87568E00475A24 /* UserView.swift in Sources */,
 				8CC9A6D22C87567300475A24 /* HomeView.swift in Sources */,
+				8CDD117F2C8F72050012B34A /* AtuhViewLogin.swift in Sources */,
 				8CC9A6D02C87563400475A24 /* TabBarView.swift in Sources */,
 				8CC9A6E02C87837E00475A24 /* LaunchScreenView.swift in Sources */,
+				8CDD117C2C8B6F9C0012B34A /* LocalStorage.swift in Sources */,
 				8CC9A6E92C87B4C000475A24 /* AuthService.swift in Sources */,
 				8CC9A6DE2C87804800475A24 /* RumbaState.swift in Sources */,
 				8CC9A6DB2C876A4A00475A24 /* RegisterView.swift in Sources */,
@@ -372,9 +398,9 @@
 				DEVELOPMENT_TEAM = NY24Z9G667;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RumbaV2-0-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -402,9 +428,9 @@
 				DEVELOPMENT_TEAM = NY24Z9G667;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "RumbaV2-0-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;

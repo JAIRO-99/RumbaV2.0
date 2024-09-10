@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct TabBarView: View {
+    init() {
+           UITabBar.appearance().backgroundColor = UIColor(Color("gris")) // Cambia el fondo de la barra de pestañas
+       }
     var body: some View {
         TabView{
             HomeView()
+     
                 .tabItem {
                     Label("Home", systemImage: "hifispeaker")
                 }
@@ -26,7 +30,7 @@ struct TabBarView: View {
                 }
         }
         .accentColor(Color("celeste"))
-       
+     
     }
 }
 

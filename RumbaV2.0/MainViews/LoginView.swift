@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject private var authViewModel = AuthViewModel()
+  
     @ObservedObject var appState: RumbaState
     
     @State private var email = ""
@@ -24,9 +25,13 @@ struct LoginView: View {
             Color("negro")
             
             StampShape()
-                .fill(Color("celeste").opacity(0.5))
+                .fill(
+                    LinearGradient(colors: [Color("negro"),Color("celeste"), Color("celeste")], startPoint: .top, endPoint: .bottom)
+                )
+               // .fill(Color("celeste").opacity(1))
                 .blur(radius: 30)
-                .offset(x: 0, y: 100)
+                .offset(x: 0, y: 450)
+               
             
             VStack{
                 Image("logo")
@@ -38,34 +43,52 @@ struct LoginView: View {
                     .foregroundColor(.white)
                 
                 VStack{
-                    HStack{
-                        
-                        Image(systemName: "envelope")
-                            .padding(.horizontal,5)
-                            .foregroundColor(Color("gris").opacity(0.5))
-                        
-                        TextField("Email", text: $email)
-                            .keyboardType(.emailAddress)
-                        
-                    }
-                    .padding()
-                    .background(Color("humo").opacity(0.7))
-                    .cornerRadius(10)
-                    .padding(.vertical,15)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 40)
+                            .foregroundColor(Color("verde"))
+                            .frame(width: 328)
+                            .frame(height: 58)
+                            .offset(x: 5, y: 3)
+                        HStack{
+                            
+                            Image(systemName: "envelope.fill")
+                                .padding(.horizontal,5)
+                                .foregroundColor(Color("gris").opacity(0.5))
+                            
+                            TextField("Email", text: $email)
+                                
+                                .keyboardType(.emailAddress)
+                            
+                        }
+                        .padding()
+                        .background(Color("humo"))
+                        .cornerRadius(40)
+                        .padding(.vertical,15)
                     .padding(.horizontal)
-                    HStack{
-                        Image(systemName: "lock")
-                            .padding(.horizontal,5)
-                            .foregroundColor(Color("gris").opacity(0.5))
-                        
-                        SecureField(" Contraseña", text: $password)
-                        
                     }
-                    .padding()
-                    .background(Color("humo").opacity(0.7))
-                    .cornerRadius(10)
-                    .padding(.vertical,15)
+                    
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 40)
+                            .foregroundColor(Color("verde"))
+                            .frame(width: 328)
+                            .frame(height: 58)
+                            .offset(x: 5, y: 3)
+                            
+                        HStack{
+                            Image(systemName: "lock.fill")
+                                .padding(.horizontal,5)
+                                .foregroundColor(Color("gris").opacity(0.5))
+                            
+                            SecureField(" Contraseña", text: $password)
+                            
+                        }
+                        .padding()
+                        .background(Color("humo").opacity(1))
+                        .cornerRadius(40)
+                        .padding(.vertical,15)
                     .padding(.horizontal)
+                    }
                 }
                 
                 Text("Recordar cuenta")
@@ -74,14 +97,13 @@ struct LoginView: View {
                     .padding()
                     .padding(.bottom,50)
                 
-                if isLoading {
-                    ProgressView()
-                        .padding()
-                } else {
+                
                     Button{
                         isLoading = true
+
                         authViewModel.loginUser(email: email, password: password) { success, error in
                             isLoading = false
+                           
                             if success {
                                 appState.rumbaState = .principalView
                             } else {
@@ -89,21 +111,22 @@ struct LoginView: View {
                             }
                         }
                     }label: {
+                        
                         Text("Iniciar Sesión")
                             .padding()
                             .font(.system(size: 15).bold())
-                            .foregroundColor(Color("humo"))
+                            .foregroundColor(!email.isEmpty && !password.isEmpty ? Color.white : Color("negro"))
                             .frame(maxWidth: .infinity)
                         
                             .background(
                                 !email.isEmpty && !password.isEmpty ?
-                                LinearGradient(colors: [Color("verde"), Color("celeste"), Color("morado")], startPoint: .leading, endPoint: .trailing) : LinearGradient(colors: [Color("gris"), Color("gris"), Color("gris")], startPoint: .leading, endPoint: .trailing)
+                                LinearGradient(colors: [Color("verde"),Color("verde"), Color("morado"),Color("morado"),Color("morado"),Color("morado"),Color("celeste"), Color("celeste")], startPoint: .topLeading, endPoint: .bottomTrailing) : LinearGradient(colors: [Color("gris"), Color("gris"), Color("gris")], startPoint: .leading, endPoint: .trailing)
                             )
-                            .cornerRadius(30)
+                            .cornerRadius(40)
                             .padding(.horizontal)
                     }
                     .disabled(email.isEmpty && password.isEmpty)
-                }
+                
                 
                 VStack{
                     Text("No tienes una cuenta?")
