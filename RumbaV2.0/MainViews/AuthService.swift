@@ -1,10 +1,3 @@
-//
-//  AuthService.swift
-//  RumbaV2.0
-//
-//  Created by Jairo Laurente Celis on 3/09/24.
-//
-
 import Foundation
 
 
@@ -28,7 +21,7 @@ enum NetworkError: Error {
 
 class AuthService {
     func registerUser(user: UserModel, completion: @escaping (Bool,String?) -> Void) {
-        guard let url = URL(string: "https://run.mocky.io/v3/42be2a4c-19ca-4ed5-925b-cca4f11cba29") else {
+        guard let url = URL(string: "https://messonstats.com:8443/register") else {
             completion(false,"URL Inválida")
             return
         }
@@ -72,19 +65,20 @@ class AuthService {
     
     func loginUser(email: String, password: String, completion: @escaping (Bool, String?) -> Void) {
         
-        guard let url = URL(string: "https://run.mocky.io/v3/a7e69eff-aa68-4f1a-8cad-86b2dedc8b59") else {
+        guard let url = URL(string: "https://messonstats.com:8443/login") else {
             completion(false, "URL inválida")
             return
         }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.setValue("aplication/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let credentials = ["email": email, "password": password]
+        let credentials = ["username": email, "password": password]
         
         do {
             let data = try JSONSerialization.data(withJSONObject: credentials, options: [])
+            print(data)
             request.httpBody = data
         } catch {
             completion(false, "Error al codificar las credenciales")
@@ -106,7 +100,7 @@ class AuthService {
             case 200:
                 completion(true, nil)
             case 401:
-                completion(false, "Email o contraseña incorrectos")
+                completion(false, "Email o contraseña incorrectos 111")
             case 500:
                 completion(false, "Error del servidor, intenta nuevamente más tarde")
             default:
@@ -115,4 +109,7 @@ class AuthService {
         }
         .resume()
     }
+    
+    // crear un folder LocalStorage nombre
 }
+

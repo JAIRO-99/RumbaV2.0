@@ -20,10 +20,6 @@ struct PurchaseView: View {
                    
                    CardView(title: "Plan Standard", description: "Plan de 1 año", plan: 1)
                        .transition(.move(edge: .leading))
-                   //                   DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-                   //                       withAnimation{
-                   //                           .transition(.move(edge: .leading))
-                   //                       }
                    
                    
                    CardView(title: "Plan Standard", description: "Plan de 1 año", plan: 1)

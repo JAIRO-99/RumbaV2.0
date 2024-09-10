@@ -33,23 +33,64 @@ struct RegisterView: View {
                         .padding(.top)
                     Spacer()
                     VStack{
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 40)
+                                .foregroundColor(Color("celeste"))
+                                .frame(width: 335)
+                                .frame(height: 55)
+                                .offset(x: 0, y: 2)
+                            
+                            textFieldViews(name: "Nombre", keyName: $name)
+                                .padding(.horizontal)
+                        }
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 40)
+                                .foregroundColor(Color("celeste"))
+                                .frame(width: 335)
+                                .frame(height: 55)
+                                .offset(x: 0, y: 2)
+                            
+                            textFieldViews(name: "Apellidos", keyName: $lastName)
+                                .padding(.horizontal)
+                        }
                         
-                        textFieldViews(name: "Nombre", keyName: $name)
-                        
-                        textFieldViews(name: "Apellidos", keyName: $lastName)
-                        
-                        textFieldViews(name: "Celular", keyName: $phone)
-                            .keyboardType(.numberPad)
-                        
-                        textFieldViews(name: "Correo", keyName: $email)
-                            .keyboardType(.emailAddress)
-                        
-                        SecureField("Cotraseña", text: $password)
-                            .padding()
-                            .background(Color("humo").opacity(0.7))
-                            .cornerRadius(10)
-                            .padding(.vertical,15)
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 40)
+                                .foregroundColor(Color("celeste"))
+                                .frame(width: 335)
+                                .frame(height: 55)
+                                .offset(x: 0, y: 2)
+                            
+                            textFieldViews(name: "Celular", keyName: $phone)
+                                .keyboardType(.numberPad)
+                                .padding(.horizontal)
+                        }
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 40)
+                                .foregroundColor(Color("celeste"))
+                                .frame(width: 335)
+                                .frame(height: 55)
+                                .offset(x: 0, y: 2)
+                            textFieldViews(name: "Correo", keyName: $email)
+                                .keyboardType(.emailAddress)
+                                .padding(.horizontal)
+                        }
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 40)
+                                .foregroundColor(Color("celeste"))
+                                .frame(width: 335)
+                                .frame(height: 55)
+                                .offset(x: 0, y: 2)
+                            
+                            SecureField("Cotraseña", text: $password)
+                                .padding()
+                                .background(Color("humo").opacity(1))
+                                .cornerRadius(40)
+                                .padding(.vertical,15)
+                                .padding(.horizontal)
+                        }
                     }
+             
                     Spacer()
                     
                     if isLoading {
@@ -75,7 +116,7 @@ struct RegisterView: View {
                                     .frame(maxWidth: .infinity)
                                     .background(
                                         !name.isEmpty && !lastName.isEmpty && !phone.isEmpty && !email.isEmpty && !password.isEmpty ?
-                                        LinearGradient(colors: [Color("verde"), Color("celeste"), Color("morado")], startPoint: .leading, endPoint: .trailing) : LinearGradient(colors: [Color("gris"), Color("gris"), Color("gris")], startPoint: .leading, endPoint: .trailing)
+                                        LinearGradient(colors: [Color("verde"),Color("verde"), Color("morado"),Color("morado"),Color("celeste"), Color("celeste")], startPoint: .topLeading, endPoint: .bottomTrailing) : LinearGradient(colors: [Color("gris"), Color("gris"), Color("gris")], startPoint: .leading, endPoint: .trailing)
                                     )
                                     .cornerRadius(30)
                                 
@@ -89,7 +130,7 @@ struct RegisterView: View {
                     }
                     Spacer()
                 }
-                .padding()
+                .padding(.horizontal)
             }
             .toolbar{
                 ToolbarItem {
@@ -117,8 +158,8 @@ struct textFieldViews: View {
     var body: some View {
         TextField(name, text: $keyName)
             .padding()
-            .background(Color("humo").opacity(0.7))
-            .cornerRadius(10)
+            .background(Color("humo"))
+            .cornerRadius(40)
             .padding(.vertical,15)
     }
 }
