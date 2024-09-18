@@ -28,7 +28,6 @@ struct LoginView: View {
                 .fill(
                     LinearGradient(colors: [Color("negro"),Color("celeste"), Color("celeste")], startPoint: .top, endPoint: .bottom)
                 )
-               // .fill(Color("celeste").opacity(1))
                 .blur(radius: 30)
                 .offset(x: 0, y: 450)
                
@@ -99,17 +98,21 @@ struct LoginView: View {
                 
                 
                     Button{
+                        appState.rumbaState = .principalView
+                        /*
                         isLoading = true
 
                         authViewModel.loginUser(email: email, password: password) { success, error in
                             isLoading = false
-                           
+                        
                             if success {
                                 appState.rumbaState = .principalView
+                                print(success)
                             } else {
                                 showAlert = true
                             }
                         }
+                         */
                     }label: {
                         
                         Text("Iniciar Sesión")

@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Combine
+
 
 class AuthViewModel: ObservableObject {
   
@@ -15,7 +17,7 @@ class AuthViewModel: ObservableObject {
     private let authService = AuthService()
     
     func registerUser(name: String, lastName: String, phone: String, email: String, password: String, completion: @escaping (Bool, String?) -> Void){
-        let user = UserModel(username: email, password: password, firstname: name, lastname: lastName, email: email)
+        let user = UserModel(username: name, password: password, firstname: name, lastname: lastName, email: email)
         authService.registerUser(user: user) { [weak self] success, error in
             DispatchQueue.main.async {
                 if success {

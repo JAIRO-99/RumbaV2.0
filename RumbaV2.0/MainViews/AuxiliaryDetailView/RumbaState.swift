@@ -9,6 +9,7 @@ import Foundation
 
 enum StateRumba {
     case launchScreen
+    case welcomeView
     case authenticationView
     case principalView
 }
@@ -16,12 +17,13 @@ enum StateRumba {
 class RumbaState: ObservableObject{
     @Published var rumbaState: StateRumba = .launchScreen
     @Published var isLoggedIn: Bool = false
-
+/*
     func updateState(to newState: StateRumba) {
            DispatchQueue.main.async {
                self.rumbaState = newState
            }
        }
+ */
        /*
        func setLoggedIn(_ loggedIn: Bool) {
            DispatchQueue.main.async {
