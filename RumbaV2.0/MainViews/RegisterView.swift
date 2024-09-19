@@ -73,6 +73,7 @@ struct RegisterView: View {
                                     .offset(x: 0, y: 2)
                                 textFieldViews(name: "Correo", keyName: $email)
                                     .keyboardType(.emailAddress)
+                                    .autocapitalization(.none)
                                     .padding(.horizontal)
                             }
                             ZStack{
@@ -84,6 +85,7 @@ struct RegisterView: View {
                                 
                                 SecureField("Cotraseña", text: $password)
                                     .padding()
+                                    .autocapitalization(.none)
                                     .background(Color("humo").opacity(1))
                                     .cornerRadius(40)
                                     .padding(.vertical,15)

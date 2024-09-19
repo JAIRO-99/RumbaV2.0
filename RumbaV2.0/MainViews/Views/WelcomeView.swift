@@ -49,36 +49,16 @@ struct WelcomeView: View {
               Spacer()
                 VStack{
                     HStack{
-                        Button{
+                        ButtonAuthentication(action: {
+                            print("auntenticate con google")
+                        }, image: "google")
+                        ButtonAuthentication(action: {
                             
-                        }label: {
-                            Image("google")
-                                .resizable()
-                                .frame(width: 20,height: 20)
-                                .padding(8)
-                                .background(Color("gris"))
-                                .cornerRadius(10)
-                        }
-                        Button{
+                        }, image: "apple")
+                        ButtonAuthentication(action: {
                             
-                        }label: {
-                            Image("apple")
-                                .resizable()
-                                .frame(width: 20,height: 20)
-                                .padding(8)
-                                .background(Color("gris"))
-                                .cornerRadius(10)
-                        }
-                        Button{
-                            
-                        }label: {
-                            Image("facebook")
-                                .resizable()
-                                .frame(width: 18,height: 20)
-                                .padding(8)
-                                .background(Color("gris"))
-                                .cornerRadius(10)
-                        }
+                        }, image: "facebook")
+                        
                     }
                     Text("Iniciar sesión con otra cuenta")
                         .foregroundColor(.white)
@@ -90,9 +70,39 @@ struct WelcomeView: View {
             RegisterView()
         })
     }
+    
+   
 }
+
+
 
 #Preview {
     WelcomeView(appState: .init())
 }
 
+
+// BOTÓN DE AUTENTICACION
+struct ButtonAuthentication: View {
+    var action: (() -> ())
+    var image: String
+    var body: some View {
+        Button{
+            action()
+        }label: {
+            if image == "facebook"{
+                Image(image)
+                    .resizable()
+                    .frame(width: 15, height: 20)
+            }else{
+                Image(image)
+                    .resizable()
+                    .frame(width: 20, height: 20)
+            }
+                
+        }
+        .padding(8)
+        .frame(width: 40,height: 35)
+        .background(LinearGradient(colors: [Color("negroClaro"),Color("negroClaro"), Color("humo")], startPoint: .bottom, endPoint: .top))
+        .cornerRadius(10)
+    }
+}

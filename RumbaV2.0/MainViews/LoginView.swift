@@ -18,6 +18,7 @@ struct LoginView: View {
     @State private var showRegister = false
     @State private var isLoading = false
     @State private var showAlert = false
+    @State private var showVericationView = false
     
     var body: some View {
         
@@ -37,9 +38,10 @@ struct LoginView: View {
                     .resizable()
                     .frame(width: 133,height: 153)
                 
-                Text("POWER IN A TAP")
-                    .font(.system(size: 18).bold())
-                    .foregroundColor(.white)
+                Text("Hola, bienvenido de nuevo!")
+                
+                    .font(.custom("Poppins-Bold",size: 18))
+                    .foregroundColor(.humo)
                 
                 VStack{
                     ZStack {
@@ -57,7 +59,8 @@ struct LoginView: View {
                             TextField("Email", text: $email)
                                 
                                 .keyboardType(.emailAddress)
-                            
+                                .autocapitalization(.none)
+                                .autocorrectionDisabled()
                         }
                         .padding()
                         .background(Color("humo"))
@@ -80,6 +83,8 @@ struct LoginView: View {
                                 .foregroundColor(Color("gris").opacity(0.5))
                             
                             SecureField(" Contraseña", text: $password)
+                                .autocapitalization(.none)
+                                .autocorrectionDisabled()
                             
                         }
                         .padding()
@@ -89,13 +94,21 @@ struct LoginView: View {
                     .padding(.horizontal)
                     }
                 }
-                
-                Text("Recordar cuenta")
-                    .font(.system(size: 15))
-                    .foregroundColor(Color("celeste"))
-                    .padding()
-                    .padding(.bottom,50)
-                
+                HStack{
+                 Spacer()
+                    Button{
+                        showVericationView = true
+                    }label: {
+                        Text("Olvidaste la contraseña?")
+                            .font(.custom("Poppins-Light", size: 12))
+                            .foregroundColor(Color("celeste"))
+                            .padding()
+                            .padding(.bottom,50)
+                            .offset(y: -20)
+                    }
+                   
+                    
+                }
                 
                     Button{
                         appState.rumbaState = .principalView
@@ -117,47 +130,71 @@ struct LoginView: View {
                         
                         Text("Iniciar Sesión")
                             .padding()
-                            .font(.system(size: 15).bold())
+                            .font(.custom("Poppins-Bold", size: 20))
                             .foregroundColor(!email.isEmpty && !password.isEmpty ? Color.white : Color.white)
                             .frame(maxWidth: .infinity)
-                        /*
-                            .background(
-                                !email.isEmpty && !password.isEmpty ?
-                                LinearGradient(colors: [Color("verde"), Color("morado"),Color("celeste")], startPoint: .topLeading, endPoint: .bottomTrailing) : LinearGradient(colors: [Color("gris"), Color("gris"), Color("gris")], startPoint: .topLeading, endPoint: .bottomTrailing)
-                            )
-                        */
                             .background(
                             RoundedRectangle(cornerRadius: 40)
                                 .stroke(!email.isEmpty && !password.isEmpty ?
-                                        LinearGradient(colors: [Color("verde"), Color("morado"),Color("celeste")], startPoint: .topLeading, endPoint: .bottomTrailing) : LinearGradient(colors: [Color("verde"), Color("morado"),Color("celeste")], startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: !email.isEmpty && !password.isEmpty ? 50 : 4)
+                                        LinearGradient(colors: [Color("verde"), Color("morado"),Color("celeste")], startPoint: .topLeading, endPoint: .bottomTrailing) : LinearGradient(colors: [Color("verde"), Color("morado"),Color("celeste")], startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: !email.isEmpty && !password.isEmpty ? 60 : 4)
                             )
                             .cornerRadius(40)
                             .padding(.horizontal)
                            
                     }
-                    .disabled(email.isEmpty && password.isEmpty)
+                    .disabled(email.isEmpty || password.isEmpty)
                 
                 
-                VStack{
-                    Text("No tienes una cuenta?")
+                HStack{
+                    Text("Nuevo usuario?")
                         .font(.system(size: 15))
                         .foregroundColor(Color("humo"))
                     Button{
                         showRegister = true
                     }label: {
-                        Text("Registrate ahora")
-                            .font(.system(size: 13))
-                            .foregroundColor(Color("celeste"))
-                            .underline()
+                        Text("Registrate")
+                            .font(.custom("Poppins-SemiBold", size: 12))
+                                   .overlay(
+                                       LinearGradient(
+                                           gradient: Gradient(colors: [.morado, .celeste]),
+                                           startPoint: .leading,
+                                           endPoint: .trailing
+                                       )
+                                       .mask(
+                                           Text("Registrate")
+                                            .font(.custom("Poppins-SemiBold", size: 12))
+                                               
+                                       )
+                                   )
+                         
                     }
                 }
                 .padding(.top,50)
+                HStack{
+                    ButtonAuthentication(action: {
+                        
+                    }, image: "google")
+                    
+                    ButtonAuthentication(action: {
+                        
+                    }, image: "apple")
+                    ButtonAuthentication(action: {
+                        
+                    }, image: "facebook")
+                }
+                .padding()
+                Text("Iniciar sesión con otra cuenta")
+                    .font(.custom("Poppins-Light", size: 13))
+                    .foregroundColor(.white)
             }
             .padding()
         }
         .edgesIgnoringSafeArea(.all)
         .fullScreenCover(isPresented: $showRegister, content: {
             RegisterView()
+        })
+        .fullScreenCover(isPresented: $showVericationView, content: {
+            RecuperationForNumberView()
         })
     }
 }

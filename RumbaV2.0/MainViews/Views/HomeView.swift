@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct HomeViews: View {
     @State private var showCustomerView = false
     var body: some View {
         NavigationView{
@@ -20,7 +20,7 @@ struct HomeView: View {
                             .foregroundColor(.white)
                             .font(.system(size: 30))
                             .fontWeight(.bold)
-                           .multilineTextAlignment(.center)
+                            .multilineTextAlignment(.center)
                         
                         Text("Escoge tu modo")
                             .foregroundColor(.white)
@@ -116,25 +116,13 @@ struct HomeView: View {
             }
             .toolbar{
                 ToolbarItem(placement: .topBarTrailing){
-                    HStack{
-                        Button{
-                            
-                        }label:{
-                            Image(systemName: "bell")
-                                .resizable()
-                                .frame(width: 25,height: 25)
-                                .foregroundColor(.white)
-                            
-                                .padding()
-                        }
-                        NavigationLink{
-                            ConfigurationView()
-                        }label:{
-                            Image(systemName: "gearshape")
-                                .resizable()
-                                .frame(width: 25,height: 25)
-                                .foregroundColor(.white)
-                        }
+                    NavigationLink{
+                        ConfigurationView()
+                    }label:{
+                        Image(systemName: "gearshape")
+                            .resizable()
+                            .frame(width: 25,height: 25)
+                            .foregroundColor(.white)
                     }
                     .padding()
                 }
@@ -147,5 +135,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeViews()
 }
