@@ -48,8 +48,8 @@ struct DjCodeView: View {
                             .multilineTextAlignment(.center)
                         
                         Spacer()
-                        Button{
-                            
+                        NavigationLink{
+                            RoomDjView()
                         }label:{
                             Text("Que empiece la rumba")
                                 .padding(.horizontal,50)

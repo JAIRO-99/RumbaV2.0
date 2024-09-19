@@ -28,6 +28,14 @@
 		8CDF6C6E2C9A5BCF00BB96FC /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF6C6D2C9A5BCF00BB96FC /* TabBar.swift */; };
 		8CDF6C732C9A812F00BB96FC /* CustomerCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF6C722C9A812F00BB96FC /* CustomerCodeView.swift */; };
 		8CDF6C762C9A885000BB96FC /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF6C752C9A885000BB96FC /* WelcomeView.swift */; };
+		8CDF6C792C9B1A8200BB96FC /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF6C782C9B1A8200BB96FC /* ConfigurationView.swift */; };
+		8CDF6C7B2C9B223900BB96FC /* ColorsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF6C7A2C9B223900BB96FC /* ColorsTextView.swift */; };
+		8CDF6C7D2C9B324A00BB96FC /* RoomDjView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF6C7C2C9B324A00BB96FC /* RoomDjView.swift */; };
+		8CDF6C942C9B34A900BB96FC /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CDF6C812C9B34A900BB96FC /* Poppins-Bold.ttf */; };
+		8CDF6C9B2C9B34A900BB96FC /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CDF6C882C9B34A900BB96FC /* Poppins-Light.ttf */; };
+		8CDF6C9F2C9B34A900BB96FC /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CDF6C8C2C9B34A900BB96FC /* Poppins-Regular.ttf */; };
+		8CDF6CA02C9B34A900BB96FC /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CDF6C8D2C9B34A900BB96FC /* Poppins-SemiBold.ttf */; };
+		8CDF6CA52C9B400F00BB96FC /* ListGuestsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF6CA42C9B400F00BB96FC /* ListGuestsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +62,14 @@
 		8CDF6C6D2C9A5BCF00BB96FC /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		8CDF6C722C9A812F00BB96FC /* CustomerCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerCodeView.swift; sourceTree = "<group>"; };
 		8CDF6C752C9A885000BB96FC /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		8CDF6C782C9B1A8200BB96FC /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
+		8CDF6C7A2C9B223900BB96FC /* ColorsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsTextView.swift; sourceTree = "<group>"; };
+		8CDF6C7C2C9B324A00BB96FC /* RoomDjView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDjView.swift; sourceTree = "<group>"; };
+		8CDF6C812C9B34A900BB96FC /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		8CDF6C882C9B34A900BB96FC /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
+		8CDF6C8C2C9B34A900BB96FC /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		8CDF6C8D2C9B34A900BB96FC /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		8CDF6CA42C9B400F00BB96FC /* ListGuestsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListGuestsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +102,7 @@
 		8CC9A6BD2C87556B00475A24 /* RumbaV2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				8CDF6C7E2C9B345C00BB96FC /* FontsPoppins */,
 				8CD5C8FF2C8A8D1E0078FAED /* RumbaV2-0-Info.plist */,
 				8CC9A6BE2C87556B00475A24 /* RumbaV2_0App.swift */,
 				8CC9A6C02C87556B00475A24 /* ContentView.swift */,
@@ -131,6 +148,7 @@
 				8CC9A6DD2C87804800475A24 /* RumbaState.swift */,
 				8CDD117D2C8F71DC0012B34A /* AuxuliaryAuthentication */,
 				8C58450A2C88D64200BC1B1B /* StampShape.swift */,
+				8CDF6C7A2C9B223900BB96FC /* ColorsTextView.swift */,
 			);
 			path = AuxiliaryDetailView;
 			sourceTree = "<group>";
@@ -182,6 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				8CC9A6CF2C87563400475A24 /* djCodeView.swift */,
+				8CDF6C7C2C9B324A00BB96FC /* RoomDjView.swift */,
+				8CDF6CA42C9B400F00BB96FC /* ListGuestsView.swift */,
 			);
 			name = DjViews;
 			path = ..;
@@ -193,6 +213,7 @@
 				8CDF6C742C9A878700BB96FC /* Main */,
 				8CDF6C712C9A80E700BB96FC /* CustomersViews */,
 				8CDF6C6F2C9A77AA00BB96FC /* DjViews */,
+				8CDF6C772C9B1A5000BB96FC /* ConfigurationViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,6 +237,33 @@
 				8CC9A6D52C87568E00475A24 /* UserView.swift */,
 			);
 			name = Main;
+			sourceTree = "<group>";
+		};
+		8CDF6C772C9B1A5000BB96FC /* ConfigurationViews */ = {
+			isa = PBXGroup;
+			children = (
+				8CDF6C782C9B1A8200BB96FC /* ConfigurationView.swift */,
+			);
+			path = ConfigurationViews;
+			sourceTree = "<group>";
+		};
+		8CDF6C7E2C9B345C00BB96FC /* FontsPoppins */ = {
+			isa = PBXGroup;
+			children = (
+				8CDF6C912C9B34A900BB96FC /* poppins */,
+			);
+			name = FontsPoppins;
+			sourceTree = "<group>";
+		};
+		8CDF6C912C9B34A900BB96FC /* poppins */ = {
+			isa = PBXGroup;
+			children = (
+				8CDF6C812C9B34A900BB96FC /* Poppins-Bold.ttf */,
+				8CDF6C882C9B34A900BB96FC /* Poppins-Light.ttf */,
+				8CDF6C8C2C9B34A900BB96FC /* Poppins-Regular.ttf */,
+				8CDF6C8D2C9B34A900BB96FC /* Poppins-SemiBold.ttf */,
+			);
+			path = poppins;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,8 +324,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CDF6C9F2C9B34A900BB96FC /* Poppins-Regular.ttf in Resources */,
+				8CDF6C942C9B34A900BB96FC /* Poppins-Bold.ttf in Resources */,
+				8CDF6C9B2C9B34A900BB96FC /* Poppins-Light.ttf in Resources */,
 				8CC9A6C62C87556D00475A24 /* Preview Assets.xcassets in Resources */,
 				8CC9A6C32C87556D00475A24 /* Assets.xcassets in Resources */,
+				8CDF6CA02C9B34A900BB96FC /* Poppins-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,14 +341,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CC9A6C12C87556B00475A24 /* ContentView.swift in Sources */,
+				8CDF6CA52C9B400F00BB96FC /* ListGuestsView.swift in Sources */,
+				8CDF6C792C9B1A8200BB96FC /* ConfigurationView.swift in Sources */,
 				8CC9A6D92C876A3D00475A24 /* LoginView.swift in Sources */,
 				8CC9A6D62C87568E00475A24 /* UserView.swift in Sources */,
 				8CC9A6D22C87567300475A24 /* HomeView.swift in Sources */,
+				8CDF6C7D2C9B324A00BB96FC /* RoomDjView.swift in Sources */,
 				8CDD117F2C8F72050012B34A /* AtuhViewLogin.swift in Sources */,
 				8CC9A6D02C87563400475A24 /* djCodeView.swift in Sources */,
 				8CC9A6E02C87837E00475A24 /* LaunchScreenView.swift in Sources */,
 				8CDF6C6E2C9A5BCF00BB96FC /* TabBar.swift in Sources */,
 				8CDD117C2C8B6F9C0012B34A /* LocalStorage.swift in Sources */,
+				8CDF6C7B2C9B223900BB96FC /* ColorsTextView.swift in Sources */,
 				8CC9A6E92C87B4C000475A24 /* AuthService.swift in Sources */,
 				8CC9A6DE2C87804800475A24 /* RumbaState.swift in Sources */,
 				8CC9A6DB2C876A4A00475A24 /* RegisterView.swift in Sources */,

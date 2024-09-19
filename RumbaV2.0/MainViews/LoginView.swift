@@ -118,15 +118,22 @@ struct LoginView: View {
                         Text("Iniciar Sesión")
                             .padding()
                             .font(.system(size: 15).bold())
-                            .foregroundColor(!email.isEmpty && !password.isEmpty ? Color.white : Color("negro"))
+                            .foregroundColor(!email.isEmpty && !password.isEmpty ? Color.white : Color.white)
                             .frame(maxWidth: .infinity)
-                        
+                        /*
                             .background(
                                 !email.isEmpty && !password.isEmpty ?
-                                LinearGradient(colors: [Color("verde"),Color("verde"), Color("morado"),Color("morado"),Color("morado"),Color("morado"),Color("celeste"), Color("celeste")], startPoint: .topLeading, endPoint: .bottomTrailing) : LinearGradient(colors: [Color("gris"), Color("gris"), Color("gris")], startPoint: .leading, endPoint: .trailing)
+                                LinearGradient(colors: [Color("verde"), Color("morado"),Color("celeste")], startPoint: .topLeading, endPoint: .bottomTrailing) : LinearGradient(colors: [Color("gris"), Color("gris"), Color("gris")], startPoint: .topLeading, endPoint: .bottomTrailing)
+                            )
+                        */
+                            .background(
+                            RoundedRectangle(cornerRadius: 40)
+                                .stroke(!email.isEmpty && !password.isEmpty ?
+                                        LinearGradient(colors: [Color("verde"), Color("morado"),Color("celeste")], startPoint: .topLeading, endPoint: .bottomTrailing) : LinearGradient(colors: [Color("verde"), Color("morado"),Color("celeste")], startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: !email.isEmpty && !password.isEmpty ? 50 : 4)
                             )
                             .cornerRadius(40)
                             .padding(.horizontal)
+                           
                     }
                     .disabled(email.isEmpty && password.isEmpty)
                 

@@ -24,17 +24,16 @@ struct TabBar: View {
                     
                     switch indexSelectedIcons {
                     case 0:
-                            HomeView()
+                        HomeView()
                     case 1:
-                        NavigationView{
-                            PurchaseView()
-                        }
-                        .navigationTitle("Mi librería")
-                    default:
                         NavigationView{
                             UserView()
                         }
-                        .navigationTitle("Pro")
+                        .navigationTitle("Mi librería")
+                    default:
+                        
+                            PurchaseView()
+                        
                     }
                 }
               //  Spacer()

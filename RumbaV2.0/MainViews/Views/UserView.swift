@@ -10,8 +10,7 @@ import SwiftUI
 struct UserView: View {
     var body: some View {
         ZStack {
-           Color("negro")
-                .edgesIgnoringSafeArea(.all)
+        
             VStack{
                 Text("User")
             }
