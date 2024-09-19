@@ -42,17 +42,7 @@ struct WelcomeView: View {
                     Button{
                         showRegisterView = true
                     }label: {
-                        Text("Crear cuenta")
-                            .padding()
-                            .padding(.horizontal,70)
-                            .foregroundColor(.white)
-                            .fontWeight(.bold)
-                            .overlay(
-                            RoundedRectangle(cornerRadius: 30)
-                                .stroke(LinearGradient(colors: [Color("verde"),Color("morado"), Color("celeste")], startPoint: .top, endPoint: .bottom), lineWidth: 4)
-                            )
-                            .background(Color("negro"))
-                            .cornerRadius(30)
+                        ColorsTextView(text: "Crear cuenta")
                     }
                     .padding()
                 }

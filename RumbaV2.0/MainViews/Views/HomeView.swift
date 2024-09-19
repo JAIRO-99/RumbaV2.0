@@ -127,8 +127,8 @@ struct HomeView: View {
                             
                                 .padding()
                         }
-                        Button{
-                            
+                        NavigationLink{
+                            ConfigurationView()
                         }label:{
                             Image(systemName: "gearshape")
                                 .resizable()
