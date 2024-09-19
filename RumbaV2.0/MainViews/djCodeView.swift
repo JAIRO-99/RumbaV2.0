@@ -10,6 +10,7 @@ import SwiftUI
 
 struct DjCodeView: View {
     @Environment(\.dismiss) var dismiss
+    @State private var showRoomDjView = false
     var body: some View {
         
         NavigationView {
@@ -48,8 +49,8 @@ struct DjCodeView: View {
                             .multilineTextAlignment(.center)
                         
                         Spacer()
-                        NavigationLink{
-                            RoomDjView()
+                        Button{
+                            showRoomDjView = true
                         }label:{
                             Text("Que empiece la rumba")
                                 .padding(.horizontal,50)
@@ -81,6 +82,9 @@ struct DjCodeView: View {
                 }
             }
         }
+        .fullScreenCover(isPresented: $showRoomDjView, content: {
+            RoomDjView()
+        })
         .navigationBarBackButtonHidden(true)
     }
 }

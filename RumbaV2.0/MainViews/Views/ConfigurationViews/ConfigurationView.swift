@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ConfigurationView: View {
+    @EnvironmentObject var tabBarViewModel: TabBarViewModel
     @Environment(\.dismiss) var dismiss
     @State private var showPerfil = false
+   
     var body: some View {
         ZStack {
             Color("negro")
@@ -53,7 +55,8 @@ struct ConfigurationView: View {
                 }
                 
                 Button{
-                    
+                    tabBarViewModel.indexSelectedIcons = 2
+                   
                 }label: {
                     Text("HAZTE PRO")
                         .font(.system(size: 20))
@@ -126,6 +129,7 @@ struct ConfigurationView: View {
 
 #Preview {
     ConfigurationView()
+        .environmentObject(TabBarViewModel())
 }
 
 struct CardConfiguration: View {

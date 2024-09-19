@@ -9,41 +9,32 @@ import SwiftUI
 struct TabBar: View {
     
     let tabIcons = ["inicio", "library", "pro"]
-    let tabTitles = ["Inicio", "Mi librería", "Pro"] // Títulos que cambian con cada icono
-    @State var indexSelectedIcons = 0
-    
+    let tabTitles = ["Inicio", "Mi librería", "Pro"]
+    @EnvironmentObject var tabBarViewModel: TabBarViewModel
     
     var body: some View {
-        
         
         ZStack {
             Color("negro")
                 .edgesIgnoringSafeArea(.all)
             VStack {
                 ZStack{
-                    
-                    switch indexSelectedIcons {
+                    switch tabBarViewModel.indexSelectedIcons {
                     case 0:
-                        HomeView()
+                        HomeViews()
                     case 1:
-                        NavigationView{
-                            UserView()
-                        }
-                        .navigationTitle("Mi librería")
+                            LibraryView()
                     default:
-                        
-                            PurchaseView()
-                        
+                        PurchaseView()
                     }
                 }
-              //  Spacer()
                 HStack{
                     ForEach(0..<3) { icon in
                         Spacer()
                         Button {
-                            self.indexSelectedIcons = icon
+                            self.tabBarViewModel.indexSelectedIcons = icon
                         } label: {
-                            if indexSelectedIcons == icon {
+                            if tabBarViewModel.indexSelectedIcons == icon {
                                 HStack {
                                     HStack{
                                         Image("\(tabIcons[icon])")
@@ -61,14 +52,11 @@ struct TabBar: View {
                                     .cornerRadius(30)
                                 }
                                 .padding(7)
-                                
-                                
                             } else {
                                 Image(tabIcons[icon])
                                     .resizable()
                                     .frame(width: 30, height: 30)
                                     .padding(.horizontal)
-                                
                             }
                         }
                         Spacer()
@@ -77,17 +65,14 @@ struct TabBar: View {
                 .background(Color("gris"))
                 .cornerRadius(40)
                 .padding()
-                //.offset(y: 30)
             }
-            
         }
-        
-        
     }
 }
 
 #Preview {
     NavigationView{
         TabBar()
+            .environmentObject(TabBarViewModel())
     }
 }

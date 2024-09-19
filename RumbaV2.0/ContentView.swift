@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var stateRumba = RumbaState()
+    @StateObject private var tabBarViewModel = TabBarViewModel()
    
     var body: some View {
         
@@ -27,17 +28,19 @@ struct ContentView: View {
                     
             case .authenticationView:
                 LoginView(appState: stateRumba)
-                  
+                    
                     .onTapGesture {
                       UIApplication.shared.endEditing()
                     }
             case .principalView:
                 TabBar()
+                    .environmentObject(tabBarViewModel)
                     .onAppear {
                         UIApplication.shared.endEditing() // Cerrar el teclado al cambiar de vista
                     }
             }
         }
+        
     }
 }
 
@@ -50,4 +53,5 @@ extension UIApplication {
 }
 #Preview {
     ContentView()
+        .environmentObject(TabBarViewModel())
 }
