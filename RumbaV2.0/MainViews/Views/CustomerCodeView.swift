@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CustomerCodeView: View {
     @Binding var dismissView: Bool
-    @State var customerCode = ""
+    @State private var customerCode = ""
+    @State private var showListCustomer = false
     var body: some View {
         NavigationView {
             ZStack{
@@ -55,7 +56,7 @@ struct CustomerCodeView: View {
                         
                         Spacer()
                         Button{
-                            
+                            showListCustomer = true
                         }label:{
                             Text("Que empiece la rumba")
                                 .padding(.horizontal,50)
@@ -74,6 +75,9 @@ struct CustomerCodeView: View {
                 .edgesIgnoringSafeArea(.all)
                 
             }
+            .fullScreenCover(isPresented: $showListCustomer, content: {
+                ListCustomerView()
+            })
             .toolbar{
                 ToolbarItem(placement: .topBarLeading){
                     Button{
@@ -86,6 +90,7 @@ struct CustomerCodeView: View {
                     }
                 }
             }
+            
         }
         .onTapGesture {
             UIApplication.shared.endEditing()
