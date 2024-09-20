@@ -11,7 +11,7 @@ struct ConfigurationView: View {
     @EnvironmentObject var tabBarViewModel: TabBarViewModel
     @Environment(\.dismiss) var dismiss
     @State private var showPerfil = false
-   
+   @State private var showFindUs = false
     var body: some View {
         ZStack {
             Color("negro")
@@ -91,14 +91,14 @@ struct ConfigurationView: View {
                     .padding(.horizontal,20)
                 }
                 Button{
-                    
+                    showFindUs = true
                 }label: {
                     CardConfiguration(image: "person.2.fill", description: "Encuentranos")
                 }
                 Button{
                     
                 }label: {
-                    CardConfiguration(image: "person.3.fill", description: "Encuentranos")
+                    CardConfiguration(image: "heart.fill", description: "Calificar la app")
                 }
                 Spacer()
                 Button{
@@ -111,6 +111,9 @@ struct ConfigurationView: View {
         }
         .fullScreenCover(isPresented: $showPerfil, content: {
             EmptyView()
+        })
+        .fullScreenCover(isPresented: $showFindUs, content: {
+            FindUsView()
         })
         .toolbar{
             ToolbarItem(placement: .topBarLeading){

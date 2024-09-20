@@ -12,11 +12,13 @@ struct LibraryView: View {
     let gender = ["Pop", "Reggaeton", "Rock", "Clásica", "Jazz", "Reggae", "Cumbia", "Metal", "Latino", "Funk", "Electro", "R&B"]
     @State private var search = ""
     var body: some View {
-        NavigationView {
+       
             ZStack {
                 Color("negro")
                     .edgesIgnoringSafeArea(.all)
                 VStack(alignment: .leading){
+                    
+                    TextField("Añade canción a la cola", text: $search)
                     Text("Géneros")
                         .font(.custom("Poppins-Bold", size: 45))
                         .foregroundColor(.white)
@@ -41,11 +43,11 @@ struct LibraryView: View {
                     
                 }
                 .padding()
-                .searchable(text: $search, prompt: "Añade canción a la cola")
+              //  .searchable(text: $search, prompt: "Añade canción a la cola")
                 .foregroundColor(.white)
                 
             }
-        }
+        
     }
     func colorsGender(gender: String) -> Color {
         switch gender {

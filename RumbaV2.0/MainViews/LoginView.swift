@@ -67,6 +67,7 @@ struct LoginView: View {
                         .cornerRadius(40)
                         .padding(.vertical,15)
                     .padding(.horizontal)
+                     
                     }
                     
                     
@@ -111,23 +112,19 @@ struct LoginView: View {
                 }
                 
                     Button{
-                        appState.rumbaState = .principalView
+                       appState.rumbaState = .principalView
                         /*
                         isLoading = true
-
                         authViewModel.loginUser(email: email, password: password) { success, error in
                             isLoading = false
-                        
                             if success {
                                 appState.rumbaState = .principalView
-                                print(success)
                             } else {
                                 showAlert = true
                             }
                         }
-                         */
+                        */
                     }label: {
-                        
                         Text("Iniciar Sesión")
                             .padding()
                             .font(.custom("Poppins-Bold", size: 20))
@@ -203,3 +200,22 @@ struct LoginView: View {
     LoginView(appState: .init())
 }
 
+struct CustomTextField: View {
+    let icon: String
+    let placeholder: String
+    @Binding var text: String
+    
+    var body: some View {
+        HStack {
+            Image(systemName: icon)
+                .foregroundColor(.gray)
+            TextField(placeholder, text: $text)
+                .keyboardType(.emailAddress)
+                .autocapitalization(.none)
+                .padding()
+                .background(Color("humo"))
+                .cornerRadius(10)
+        }
+        .padding(.horizontal)
+    }
+}

@@ -9,7 +9,8 @@ import SwiftUI
 
 @main
 struct RumbaV2_0App: App {
-    
+    // Agrega el adaptador para que SwiftUI use AppDelegate
+      // @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
             ContentView()

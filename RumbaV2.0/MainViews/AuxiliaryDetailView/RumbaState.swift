@@ -17,6 +17,16 @@ enum StateRumba {
 class RumbaState: ObservableObject{
     @Published var rumbaState: StateRumba = .launchScreen
     @Published var isLoggedIn: Bool = false
+    
+    init() {
+            // Verificar si hay un token guardado al inicializar
+            if UserDefaults.standard.string(forKey: "authToken") != nil {
+                self.rumbaState = .principalView
+                self.isLoggedIn = true
+            } else {
+                self.rumbaState = .authenticationView
+            }
+        }
 /*
     func updateState(to newState: StateRumba) {
            DispatchQueue.main.async {
