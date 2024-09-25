@@ -14,6 +14,7 @@ struct LoginView: View {
     
     @State private var email = ""
     @State private var password = ""
+ 
     
     @State private var showRegister = false
     @State private var isLoading = false
@@ -103,11 +104,9 @@ struct LoginView: View {
                         Text("Olvidaste la contraseña?")
                             .font(.custom("Poppins-Light", size: 12))
                             .foregroundColor(Color("celeste"))
-                            .padding()
-                            .padding(.bottom,50)
                             .offset(y: -20)
                     }
-                   
+                    .padding()
                     
                 }
                 

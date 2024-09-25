@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import GoogleSignInSwift
 
 
 class AuthViewModel: ObservableObject {
