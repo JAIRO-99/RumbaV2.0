@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ListCustomerView: View {
     @Environment(\.dismiss) var dismiss
+    @State private var showAnimationView = false
     var body: some View {
         NavigationView{
             ZStack {
@@ -108,6 +109,14 @@ struct ListCustomerView: View {
                             .foregroundColor(.white)
                     }
                 }
+            }
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                    showAnimationView = true
+                }
+            }
+            .fullScreenCover(isPresented: $showAnimationView) {
+                RAnimationView()
             }
             .navigationBarBackButtonHidden(true)
         }
