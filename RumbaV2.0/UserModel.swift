@@ -27,6 +27,9 @@ struct UserModel: Codable {
     
  
      }
+struct LoginResponse: Codable {
+    let token: String
+}
 
 /*
     "userFirstName": "ana",

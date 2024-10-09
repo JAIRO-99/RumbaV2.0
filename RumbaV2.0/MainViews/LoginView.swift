@@ -30,6 +30,7 @@ struct LoginView: View {
                 .fill(
                     LinearGradient(colors: [Color("negro"),Color("celeste"), Color("celeste")], startPoint: .top, endPoint: .bottom)
                 )
+               
                 .blur(radius: 30)
                 .offset(x: 0, y: 450)
                
@@ -48,7 +49,7 @@ struct LoginView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 40)
                             .foregroundColor(Color("verde"))
-                            .frame(width: 328)
+                            .frame(maxWidth: .infinity)
                             .frame(height: 58)
                             .offset(x: 5, y: 3)
                         HStack{
@@ -58,24 +59,23 @@ struct LoginView: View {
                                 .foregroundColor(Color("gris").opacity(0.5))
                             
                             TextField("Email", text: $email)
-                                
                                 .keyboardType(.emailAddress)
                                 .autocapitalization(.none)
                                 .autocorrectionDisabled()
+                                .textContentType(.emailAddress)
                         }
                         .padding()
+                        .frame(maxWidth: .infinity)
                         .background(Color("humo"))
                         .cornerRadius(40)
                         .padding(.vertical,15)
-                    .padding(.horizontal)
-                     
                     }
-                    
+                    .padding(.horizontal)
                     
                     ZStack {
                         RoundedRectangle(cornerRadius: 40)
                             .foregroundColor(Color("verde"))
-                            .frame(width: 328)
+                            .frame(maxWidth: .infinity)
                             .frame(height: 58)
                             .offset(x: 5, y: 3)
                             
@@ -85,16 +85,19 @@ struct LoginView: View {
                                 .foregroundColor(Color("gris").opacity(0.5))
                             
                             SecureField(" Contraseña", text: $password)
+                                
+                                .textContentType(.password)
                                 .autocapitalization(.none)
                                 .autocorrectionDisabled()
-                            
+                                
                         }
                         .padding()
+                        .frame(maxWidth: .infinity)
                         .background(Color("humo").opacity(1))
                         .cornerRadius(40)
                         .padding(.vertical,15)
-                    .padding(.horizontal)
                     }
+                    .padding(.horizontal)
                 }
                 HStack{
                  Spacer()

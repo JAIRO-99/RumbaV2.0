@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C58450B2C88D64200BC1B1B /* StampShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C58450A2C88D64200BC1B1B /* StampShape.swift */; };
+		8C67D5322CA7086F002B23D9 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C67D5312CA7086F002B23D9 /* SideMenuView.swift */; };
 		8C9155102CA2261A0017C5D2 /* AuthtenticationWithGoogleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C91550F2CA2261A0017C5D2 /* AuthtenticationWithGoogleView.swift */; };
 		8C9155132CA228070017C5D2 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 8C9155122CA228070017C5D2 /* GoogleSignIn */; };
 		8C9155152CA228070017C5D2 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8C9155142CA228070017C5D2 /* GoogleSignInSwift */; };
@@ -28,6 +29,9 @@
 		8CC9A6E42C87AE4400475A24 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9A6E32C87AE4400475A24 /* UserModel.swift */; };
 		8CC9A6E62C87AEC900475A24 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9A6E52C87AEC900475A24 /* AuthViewModel.swift */; };
 		8CC9A6E92C87B4C000475A24 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC9A6E82C87B4C000475A24 /* AuthService.swift */; };
+		8CCDDFAA2CA76EDA0063FA7A /* ContentSideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCDDFA92CA76EDA0063FA7A /* ContentSideMenuView.swift */; };
+		8CCDDFAC2CAB232F0063FA7A /* RowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCDDFAB2CAB232F0063FA7A /* RowItemView.swift */; };
+		8CCDDFAE2CAB409D0063FA7A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CCDDFAD2CAB409D0063FA7A /* HeaderView.swift */; };
 		8CDD117C2C8B6F9C0012B34A /* LocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDD117B2C8B6F9C0012B34A /* LocalStorage.swift */; };
 		8CDD117F2C8F72050012B34A /* SelectImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDD117E2C8F72050012B34A /* SelectImageView.swift */; };
 		8CDF6C6E2C9A5BCF00BB96FC /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CDF6C6D2C9A5BCF00BB96FC /* TabBar.swift */; };
@@ -54,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		8C58450A2C88D64200BC1B1B /* StampShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampShape.swift; sourceTree = "<group>"; };
+		8C67D5312CA7086F002B23D9 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		8C91550F2CA2261A0017C5D2 /* AuthtenticationWithGoogleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthtenticationWithGoogleView.swift; sourceTree = "<group>"; };
 		8C9155162CA229F10017C5D2 /* GoogleSignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInViewModel.swift; sourceTree = "<group>"; };
 		8C9155182CA22A0F0017C5D2 /* GoogleSignInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInService.swift; sourceTree = "<group>"; };
@@ -73,6 +78,9 @@
 		8CC9A6E32C87AE4400475A24 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		8CC9A6E52C87AEC900475A24 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		8CC9A6E82C87B4C000475A24 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		8CCDDFA92CA76EDA0063FA7A /* ContentSideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSideMenuView.swift; sourceTree = "<group>"; };
+		8CCDDFAB2CAB232F0063FA7A /* RowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowItemView.swift; sourceTree = "<group>"; };
+		8CCDDFAD2CAB409D0063FA7A /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		8CD5C8FF2C8A8D1E0078FAED /* RumbaV2-0-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "RumbaV2-0-Info.plist"; sourceTree = SOURCE_ROOT; };
 		8CDD117B2C8B6F9C0012B34A /* LocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStorage.swift; sourceTree = "<group>"; };
 		8CDD117E2C8F72050012B34A /* SelectImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectImageView.swift; sourceTree = "<group>"; };
@@ -289,6 +297,10 @@
 			isa = PBXGroup;
 			children = (
 				8CDF6C782C9B1A8200BB96FC /* ConfigurationView.swift */,
+				8C67D5312CA7086F002B23D9 /* SideMenuView.swift */,
+				8CCDDFA92CA76EDA0063FA7A /* ContentSideMenuView.swift */,
+				8CCDDFAD2CAB409D0063FA7A /* HeaderView.swift */,
+				8CCDDFAB2CAB232F0063FA7A /* RowItemView.swift */,
 				8CE3E94D2C9CDF63004B5FBE /* UserView.swift */,
 				8CE3E9562C9DC043004B5FBE /* FindUsView.swift */,
 			);
@@ -396,12 +408,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CCDDFAA2CA76EDA0063FA7A /* ContentSideMenuView.swift in Sources */,
 				8CC9A6C12C87556B00475A24 /* ContentView.swift in Sources */,
 				8CE3E95B2C9DEAB5004B5FBE /* RAnimationView.swift in Sources */,
 				8CDF6CA52C9B400F00BB96FC /* ListGuestsView.swift in Sources */,
 				8CE3E9592C9DE92B004B5FBE /* ListCustomerView.swift in Sources */,
 				8CDF6C792C9B1A8200BB96FC /* ConfigurationView.swift in Sources */,
 				8CC9A6D92C876A3D00475A24 /* LoginView.swift in Sources */,
+				8CCDDFAC2CAB232F0063FA7A /* RowItemView.swift in Sources */,
 				8CE3E9552C9D4197004B5FBE /* AppDelegate.swift in Sources */,
 				8CC9A6D62C87568E00475A24 /* LibraryView.swift in Sources */,
 				8CE3E9572C9DC043004B5FBE /* FindUsView.swift in Sources */,
@@ -418,6 +432,8 @@
 				8CC9A6E92C87B4C000475A24 /* AuthService.swift in Sources */,
 				8CC9A6DE2C87804800475A24 /* RumbaState.swift in Sources */,
 				8CC9A6DB2C876A4A00475A24 /* RegisterView.swift in Sources */,
+				8C67D5322CA7086F002B23D9 /* SideMenuView.swift in Sources */,
+				8CCDDFAE2CAB409D0063FA7A /* HeaderView.swift in Sources */,
 				8CE3E9482C9C9804004B5FBE /* TabBarViewModel.swift in Sources */,
 				8C9155102CA2261A0017C5D2 /* AuthtenticationWithGoogleView.swift in Sources */,
 				8CC9A6E62C87AEC900475A24 /* AuthViewModel.swift in Sources */,
