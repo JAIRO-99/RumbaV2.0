@@ -4,11 +4,13 @@
 //
 //  Created by Jairo Laurente Celis on 3/09/24.
 //
+import SwiftUI
 
 import SwiftUI
 
 struct HomeViews: View {
     @State private var showCustomerView = false
+    @State private var showDjCodeView = false
     var body: some View {
         NavigationView{
             ZStack {
@@ -22,12 +24,12 @@ struct HomeViews: View {
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
                         
-                        Text("Escoge tu modo")
-                            .foregroundColor(.white)
-                            .font(.system(size: 15))
-                            .fontWeight(.bold)
-                            .offset(x:-90,y:20)
-                        VStack{
+                            Text("Escoge tu modo")
+                                .foregroundColor(.white)
+                                .font(.system(size: 15))
+                                .fontWeight(.bold)
+                                .offset(x: -99, y: 10)
+                            VStack{
                             ZStack {
                                 LinearGradient(colors: [Color("morado"), Color("celeste")], startPoint: .bottom, endPoint: .top)
                                 Image("dj")
@@ -45,8 +47,8 @@ struct HomeViews: View {
                                                 .fontWeight(.bold)
                                             
                                             Spacer()
-                                            NavigationLink{
-                                                DjCodeView()
+                                            Button{
+                                                showDjCodeView = true
                                             }label: {
                                                 Image(systemName: "chevron.right")
                                                     .frame(width: 40,height: 40)
@@ -55,20 +57,17 @@ struct HomeViews: View {
                                                     .clipShape(Circle())
                                             }
                                             .padding()
-                                            
                                         }
                                         .padding()
-                                        
-                                        
-                                        
                                     }
                                 }
                             }
                             
-                            .frame(width: 320,height: 220)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 220)
                             .cornerRadius(30)
                             .padding(.vertical,30)
-                            
+                            .padding(.horizontal,35)
                             ZStack {
                                 LinearGradient(colors: [Color("verde"), Color("celeste")], startPoint: .bottom, endPoint: .top)
                                 Image("cliente")
@@ -106,9 +105,10 @@ struct HomeViews: View {
                                     }
                                 }
                             }
-                            
-                            .frame(width: 320,height: 220)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 220)
                             .cornerRadius(30)
+                            .padding(.horizontal,35)
                         }
                     }
                     Spacer()
@@ -129,6 +129,9 @@ struct HomeViews: View {
             }
             .fullScreenCover(isPresented: $showCustomerView, content: {
                 CustomerCodeView(dismissView: $showCustomerView)
+            })
+            .fullScreenCover(isPresented: $showDjCodeView, content: {
+                DjCodeView()
             })
         }
     }

@@ -12,7 +12,7 @@ struct StampShape: Shape {
         var path = Path()
         
         // Dibuja la forma del rectángulo
-        let rectangle = CGRect(x: rect.midX - 200, y: rect.midY - 100, width: 400, height: 300)
+        let rectangle = CGRect(x: rect.midX - 400, y: rect.midY - 100, width: 800, height: 300)
         path.addRect(rectangle)
         
         return path

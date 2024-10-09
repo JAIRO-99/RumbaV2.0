@@ -168,7 +168,7 @@ struct RegisterView: View {
                             } else {
                                 Button{
                                     isLoading = true
-                                   
+                                   /*
                                     authViewModel.registerUser(name: name, lastName: lastName, phone: phone, email: email, password: password) { success, error in
                                         isLoading = false
                                         if success {
@@ -177,7 +177,7 @@ struct RegisterView: View {
                                             showAlert = true
                                         }
                                     }
-                                    
+                                    */
                                 }label: {
                                    
                                         Text("Crear cuenta")
