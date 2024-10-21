@@ -13,9 +13,9 @@ class GoogleSignInViewModel: ObservableObject {
     @Published var isLoading = false
 
     private var cancellables = Set<AnyCancellable>()
-    private let googleSignInService = GoogleSignInService()
+   // private let googleSignInService = GoogleSignInService()
 
-    func signInWithGoogle() {
+    /*func signInWithGoogle() {
         isLoading = true
         googleSignInService.signInWithGoogle { [weak self] result in
             DispatchQueue.main.async {
@@ -31,4 +31,5 @@ class GoogleSignInViewModel: ObservableObject {
             }
         }
     }
+    */
 }
