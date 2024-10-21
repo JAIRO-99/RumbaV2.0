@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-import GoogleSignIn
+//import GoogleSignIn
 import Combine
 
 //MANEJO DE ERRORES CON EL REGISTRO

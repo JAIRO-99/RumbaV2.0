@@ -1,5 +1,5 @@
 import SwiftUI
-import GoogleSignInSwift
+//import GoogleSignInSwift
 
 struct GoogleSignInButtonView: View {
     @StateObject private var viewModel = GoogleSignInViewModel()
@@ -11,6 +11,7 @@ struct GoogleSignInButtonView: View {
                     .foregroundColor(.green)
                     .font(.headline)
             } else {
+                /*
                 GoogleSignInButton {
                     viewModel.signInWithGoogle()
                 }
@@ -24,6 +25,7 @@ struct GoogleSignInButtonView: View {
                 Text(viewModel.signInStatus)
                     .foregroundColor(.red)
                     .font(.subheadline)
+                */
             }
         }
     }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LibraryView: View {
-    let columns = [GridItem(.adaptive(minimum: 120)),GridItem(.adaptive(minimum: 120)),GridItem(.adaptive(minimum: 120))]
+    let columns = [GridItem(.adaptive(minimum: 120)),GridItem(.adaptive(minimum: 120))]
     let gender = ["Pop", "Reggaeton", "Rock", "Clásica", "Jazz", "Reggae", "Cumbia", "Metal", "Latino", "Funk", "Electro", "R&B"]
     @State private var search = ""
     var body: some View {
@@ -32,7 +32,7 @@ struct LibraryView: View {
                                     Text(gender)
                                         .font(.custom("Poppins-Bold", size: 15))
                                         .foregroundColor(.white)
-                                        .frame(width: 115,height: 115)
+                                        .frame(width: 160,height: 120)
                                         .background(colorsGender(gender: gender))
                                         .cornerRadius(25)
                                     
