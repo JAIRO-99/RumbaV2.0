@@ -5,33 +5,45 @@
 //  Created by Jairo Laurente Celis on 3/09/24.
 //
 
+
 import SwiftUI
 
 struct ContentView: View {
     @StateObject var stateRumba = RumbaState()
+    @StateObject private var tabBarViewModel = TabBarViewModel()
+    
     var body: some View {
-        Group {
-            switch stateRumba.rumbaState {
-            case .launchScreen:
-                LaunchScreenView()
-                    .onAppear{
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-                            stateRumba.rumbaState = .authenticationView
+        
+        NavigationView {
+            Group {
+                switch stateRumba.rumbaState {
+                case .launchScreen:
+                    LaunchScreenView()
+                        .onAppear{
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
+                                stateRumba.rumbaState = .welcomeView
+                            }
                         }
-                    }
-            case .authenticationView:
-                LoginView(appState: stateRumba)
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                      UIApplication.shared.endEditing()
-                    }
-            case .principalView:
-                TabBarView()
-                    .onAppear {
-                        UIApplication.shared.endEditing() // Cerrar el teclado al cambiar de vista
-                    }
+                case .welcomeView:
+                    WelcomeView(appState: stateRumba)
+                    
+                case .authenticationView:
+                    LoginView(appState: stateRumba)
+                    
+                        .onTapGesture {
+                            UIApplication.shared.endEditing()
+                        }
+                case .principalView:
+                    TabBar()
+                        .environmentObject(tabBarViewModel)
+                        .onAppear {
+                            UIApplication.shared.endEditing() // Cerrar el teclado al cambiar de vista
+                        }
+                        .navigationViewStyle(StackNavigationViewStyle())
+                }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -44,4 +56,5 @@ extension UIApplication {
 }
 #Preview {
     ContentView()
+        .environmentObject(TabBarViewModel())
 }

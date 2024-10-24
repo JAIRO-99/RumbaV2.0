@@ -11,14 +11,12 @@ struct StampShape: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
         
-        // Dibuja la forma de la huella
-        path.addEllipse(in: CGRect(x: rect.midX - 120, y: rect.midY + 160, width: 250, height: 200))
-        
-       
+        // Dibuja la forma del rectángulo
+        let rectangle = CGRect(x: rect.midX - 400, y: rect.midY - 100, width: 800, height: 300)
+        path.addRect(rectangle)
         
         return path
     }
-    
 }
 #Preview(body: {
     StampShape()
