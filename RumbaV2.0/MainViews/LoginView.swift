@@ -7,9 +7,10 @@
 
 import SwiftUI
 
+
 struct LoginView: View {
     @StateObject private var authViewModel = AuthViewModel()
-  
+    @ObservedObject var googleViewModel: GoogleSignInViewModel
     @ObservedObject var appState: RumbaState
     
     @State private var email = ""
@@ -171,7 +172,7 @@ struct LoginView: View {
                 .padding(.top,50)
                 HStack{
                     ButtonAuthentication(action: {
-                        
+                        googleViewModel.signIn()
                     }, image: "google")
                     
                     ButtonAuthentication(action: {
@@ -180,6 +181,9 @@ struct LoginView: View {
                     ButtonAuthentication(action: {
                         
                     }, image: "facebook")
+                }
+                .alert(item: $googleViewModel.errorMessage) { error in
+                    Alert(title: Text("Error"), message: Text(error.message), dismissButton: .default(Text("OK")))
                 }
                 .padding()
                 Text("Iniciar sesión con otra cuenta")
@@ -199,7 +203,8 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView(appState: .init())
+    LoginView(googleViewModel: GoogleSignInViewModel(), appState: .init())
+      
 }
 
 struct CustomTextField: View {

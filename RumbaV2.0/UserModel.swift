@@ -18,7 +18,7 @@ struct UserModel: Codable {
     static let exampleUser = UserModel(name: "Jairo", lastName: "Laurente Celis", phone: "932910224", email: "jairo@gmail.com", password: "123456789")
     */
     
-    var username: String
+    var userName: String
     var password: String
     var firstname: String
     var lastname: String

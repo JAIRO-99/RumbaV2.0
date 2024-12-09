@@ -7,12 +7,16 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.490357732211-5mrkoqqo7porfgpidnd50l14ud8a88sg.apps.googleusercontent.com</string>
+				<string>com.googleusercontent.apps.662795883801-iu7lsgeemcdrbtmq0sah4rjqm7nfdq5i</string>
 			</array>
 		</dict>
 	</array>
+	<key>GIDClientID</key>
+	<string>662795883801-iu7lsgeemcdrbtmq0sah4rjqm7nfdq5i.apps.googleusercontent.com</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>google</string>

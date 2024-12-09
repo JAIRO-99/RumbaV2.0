@@ -18,7 +18,7 @@ class AuthViewModel: ObservableObject {
     
     // Método para registrar usuarios usando Combine
     func registerUser(name: String, lastName: String, phone: String, email: String, password: String) {
-        let user = UserModel(username: name, password: password, firstname: name, lastname: lastName, email: email)
+        let user = UserModel(userName: name, password: password, firstname: name, lastname: lastName, email: email)
         
         authService.registerUser(user: user)
             .receive(on: DispatchQueue.main) // Actualizamos en el hilo principal

@@ -5,7 +5,8 @@
 //  Created by Jairo Laurente Celis on 3/09/24.
 //
 
-import Foundation
+import SwiftUI
+import GoogleSignIn
 
 enum StateRumba {
     case launchScreen
@@ -14,32 +15,37 @@ enum StateRumba {
     case principalView
 }
 
-class RumbaState: ObservableObject{
+class RumbaState: ObservableObject {
     @Published var rumbaState: StateRumba = .launchScreen
     @Published var isLoggedIn: Bool = false
-    /*
+
     init() {
-            // Verificar si hay un token guardado al inicializar
-            if UserDefaults.standard.string(forKey: "authToken") != nil {
-                self.rumbaState = .principalView
-                self.isLoggedIn = true
-            } else {
-                self.rumbaState = .authenticationView
+        checkLoginStatus()
+    }
+    
+    func checkLoginStatus() {
+        // Restaurar sesión de Google si existe una activa
+        GIDSignIn.sharedInstance.restorePreviousSignIn { [weak self] user, error in
+            DispatchQueue.main.async {
+                if user != nil {
+                    self?.isLoggedIn = true
+                    self?.rumbaState = .principalView // Ir directamente a la vista principal
+                } else {
+                    self?.isLoggedIn = false
+                    self?.rumbaState = .launchScreen // Mantener el flujo original
+                }
             }
         }
-    */
-/*
-    func updateState(to newState: StateRumba) {
-           DispatchQueue.main.async {
-               self.rumbaState = newState
-           }
-       }
- */
-       /*
-       func setLoggedIn(_ loggedIn: Bool) {
-           DispatchQueue.main.async {
-               self.isLoggedIn = loggedIn
-           }
-       }
-        */
+    }
+    
+    func logIn() {
+        isLoggedIn = true
+        rumbaState = .principalView
+    }
+    
+    func logOut() {
+        GIDSignIn.sharedInstance.signOut()
+        isLoggedIn = false
+        rumbaState = .authenticationView // Redirigir a la vista de autenticación tras el cierre de sesión
+    }
 }

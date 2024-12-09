@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftUI
 
 struct HomeViews: View {
+    @ObservedObject var googleViewModel: GoogleSignInViewModel
     @State private var showCustomerView = false
     @State private var showDjCodeView = false
     var body: some View {
@@ -117,7 +118,7 @@ struct HomeViews: View {
             .toolbar{
                 ToolbarItem(placement: .topBarTrailing){
                     NavigationLink{
-                        ConfigurationView()
+                        ConfigurationView(googleViewModel: googleViewModel)
                     }label:{
                         Image(systemName: "gearshape")
                             .resizable()
@@ -138,5 +139,5 @@ struct HomeViews: View {
 }
 
 #Preview {
-    HomeViews()
+    HomeViews(googleViewModel: GoogleSignInViewModel())
 }

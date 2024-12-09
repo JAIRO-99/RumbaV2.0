@@ -9,52 +9,48 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var stateRumba = RumbaState()
     @StateObject private var tabBarViewModel = TabBarViewModel()
-    
-    var body: some View {
+    @StateObject var stateRumba = RumbaState()
+    @StateObject var viewModel = GoogleSignInViewModel()
         
-        NavigationView {
-            Group {
+        var body: some View {
+            NavigationView {
                 switch stateRumba.rumbaState {
                 case .launchScreen:
                     LaunchScreenView()
-                        .onAppear{
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-                                stateRumba.rumbaState = .welcomeView
+                        .onAppear {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                if !stateRumba.isLoggedIn {
+                                    stateRumba.rumbaState = .welcomeView
+                                } else {
+                                    stateRumba.rumbaState = .principalView
+                                }
                             }
                         }
+                    
                 case .welcomeView:
-                    WelcomeView(appState: stateRumba)
+                    WelcomeView(appState: stateRumba, googleViewModel: viewModel)
                     
                 case .authenticationView:
-                    LoginView(appState: stateRumba)
-                    
-                        .onTapGesture {
-                            UIApplication.shared.endEditing()
-                        }
+                    LoginView(googleViewModel: viewModel, appState: stateRumba)
+                        
                 case .principalView:
-                    TabBar()
+                    TabBar(googleViewModel: viewModel)
                         .environmentObject(tabBarViewModel)
-                        .onAppear {
-                            UIApplication.shared.endEditing() // Cerrar el teclado al cambiar de vista
-                        }
-                        .navigationViewStyle(StackNavigationViewStyle())
                 }
             }
+            .navigationViewStyle(StackNavigationViewStyle())
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
-}
 
 
-// Extensión para cerrar el teclado
-extension UIApplication {
-    func endEditing() {
-        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
+   // Extensión para cerrar el teclado
+   extension UIApplication {
+       func endEditing() {
+           sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+       }
+   }
 #Preview {
     ContentView()
-        .environmentObject(TabBarViewModel())
+       // .environmentObject(TabBarViewModel())
 }

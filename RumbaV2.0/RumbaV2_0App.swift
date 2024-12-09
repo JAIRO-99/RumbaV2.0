@@ -6,14 +6,26 @@
 //
 
 import SwiftUI
+import GoogleSignIn
+import GoogleSignInSwift
 
 @main
 struct RumbaV2_0App: App {
-    // Agrega el adaptador para que SwiftUI use AppDelegate
-      // @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject private var viewModel = GoogleSignInViewModel()
     var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
+           WindowGroup {
+               ContentView()
+                   .environmentObject(viewModel)
+                   .onOpenURL { url in
+                       GIDSignIn.sharedInstance.handle(url)
+                   }
+                   .onAppear {
+                       GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
+                           if let user {
+                               viewModel.authState = .loggedIn(UserGoogle(name: user.profile?.name ?? ""))
+                           }
+                       }
+                   }
+           }
+       }
 }

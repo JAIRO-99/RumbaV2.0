@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ConfigurationView: View {
     @EnvironmentObject var tabBarViewModel: TabBarViewModel
+    @ObservedObject var googleViewModel: GoogleSignInViewModel
     @Environment(\.dismiss) var dismiss
     @State private var showPerfil = false
    @State private var showFindUs = false
@@ -102,6 +103,7 @@ struct ConfigurationView: View {
                 }
                 Spacer()
                 Button{
+                    googleViewModel.signOut()
                     
                 }label: {
                     ColorsTextView(text: "Cerrar sesión")
@@ -131,7 +133,7 @@ struct ConfigurationView: View {
 }
 
 #Preview {
-    ConfigurationView()
+    ConfigurationView(googleViewModel: GoogleSignInViewModel())
         .environmentObject(TabBarViewModel())
 }
 

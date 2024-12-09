@@ -14,7 +14,7 @@ struct TabBar: View {
     let tabTitles = ["Inicio", "Mi librería", "Pro"]
     @EnvironmentObject var tabBarViewModel: TabBarViewModel
     @State private var keyboardIsPresented: Bool = false
-    
+    @ObservedObject var googleViewModel: GoogleSignInViewModel
     var body: some View {
         ZStack {
             Color("negro")
@@ -23,7 +23,7 @@ struct TabBar: View {
                 ZStack{
                     switch tabBarViewModel.indexSelectedIcons {
                     case 0:
-                        HomeViews()
+                        HomeViews(googleViewModel: googleViewModel)
                     case 1:
                         LibraryView()
                     default:
@@ -94,7 +94,7 @@ extension Publishers {
 
 #Preview {
     NavigationView {
-        TabBar()
+        TabBar(googleViewModel: GoogleSignInViewModel())
             .environmentObject(TabBarViewModel())
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct WelcomeView: View {
     @ObservedObject var appState: RumbaState
     @State private var showRegisterView = false
+    @ObservedObject var googleViewModel: GoogleSignInViewModel
     var body: some View {
         ZStack{
             Color("negro")
@@ -51,6 +52,7 @@ struct WelcomeView: View {
                     HStack{
                         ButtonAuthentication(action: {
                             print("auntenticate con google")
+                            googleViewModel.signIn()
                         }, image: "google")
                         ButtonAuthentication(action: {
                             
@@ -77,7 +79,7 @@ struct WelcomeView: View {
 
 
 #Preview {
-    WelcomeView(appState: .init())
+    WelcomeView(appState: .init(), googleViewModel: GoogleSignInViewModel())
 }
 
 
